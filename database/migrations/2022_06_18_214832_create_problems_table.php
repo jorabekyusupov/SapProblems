@@ -19,6 +19,7 @@ return new class extends Migration {
             $table->enum('status', ['open', 'closed', 'solved'])->default('open');
             $table->integer('like')->default(0);
             $table->integer('dislike')->default(0);
+            $table->dateTime('deleted_at')->nullable();
             $table->timestamps();
         });
     }

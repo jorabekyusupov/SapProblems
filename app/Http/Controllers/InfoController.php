@@ -33,4 +33,32 @@ class InfoController extends Controller
         $problem = Problem::create($data);
         return redirect()->route('dashboard')->with('success', 'Problem created successfully.');
     }
+
+    public function edit($id)
+    {
+        $model = Problem::findOrFail($id);
+        return view('Problems.update', compact('model'));
+    }
+    public function update(Request $request, $id)
+    {
+        $data = Validator::make($request->all(), [
+            'kod' => 'required|unique:problems,kod,' . $id,
+            'problem' => 'required',
+            'solution' => 'required',
+            'start_date' => 'required',
+            'end_date' => 'required'
+        ])->validated();
+        $data['user_id'] = auth()->user()->id;
+        $problem = Problem::findOrFail($id);
+        $problem->update($data);
+        return redirect()->route('dashboard')->with('success', 'Problem updated successfully.');
+    }
+
+    public function destroy($id)
+    {
+        $model = Problem::findOrFail($id);
+        $model->delete();
+        return redirect()->route('dashboard')->with('success', 'Problem deleted successfully.');
+
+    }
 }
