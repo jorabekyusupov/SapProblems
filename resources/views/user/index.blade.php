@@ -21,7 +21,7 @@
                         <td>{{ $user->firstname }}</td>
                         <td>{{ $user->lastname }}</td>
                         <td>{{ $user->email }}</td>
-                        <td class="{{$user->id === auth()->user()->id || auth()->user()->id === 1 ? 'd-none' : ''}}">@if($user->employee)
+                        <td class="{{$user->id === auth()->user()->id || auth()->user()->id != 1 ? 'd-none' : ''}}">@if($user->employee)
                                 <form action="{{route('users.update', ["id"=> $user->id])}}" method="post">
                                     @method('put')
                                     @csrf
@@ -40,7 +40,7 @@
                                     </button>
                                 </form>
                             @endif</td>
-                        <td class="{{$user->id === auth()->user()->id ? 'd-none' : ''}}"
+                        <td class="{{$user->id === auth()->user()->id || auth()->user()->id != 1 ?  'd-none' : ''}}"
                             style="color: gray">@if($user->is_admin)
                                 <form action="{{route('users.update', ["id"=> $user->id])}}" method="post">
                                     @method('put')
