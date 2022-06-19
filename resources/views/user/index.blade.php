@@ -21,6 +21,8 @@
                         <td>{{ $user->firstname }}</td>
                         <td>{{ $user->lastname }}</td>
                         <td>{{ $user->email }}</td>
+                        <td class="{{$user->id === auth()->user()->id ? '' : 'd-none'}}">  <div  class="btn-user btn btn-success">Ruxsat</div></td>
+                        <td class="{{$user->id === auth()->user()->id ? '' : 'd-none'}}">  <div   class="btn-user btn btn-success">Ruxsat</div></td>
                         <td class="{{$user->id === auth()->user()->id || auth()->user()->id != 1 ? 'd-none' : ''}}">@if($user->employee)
                                 <form action="{{route('users.update', ["id"=> $user->id])}}" method="post">
                                     @method('put')
