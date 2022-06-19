@@ -28,5 +28,5 @@
 		
 	    Superadmin user yaratadi
 
-5Shundan so'ng username, password kiritib tizimdan foydalanish mumkin.
+Shundan so'ng username, password kiritib tizimdan foydalanish mumkin.
 
