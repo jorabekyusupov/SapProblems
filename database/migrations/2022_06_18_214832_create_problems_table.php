@@ -12,8 +12,8 @@ return new class extends Migration {
             $table->string('kod');
             $table->text('problem');
             $table->text('solution');
-            $table->date('start_date');
-            $table->date('end_date');
+            $table->dateTime('start_date');
+            $table->dateTime('end_date');
             $table->unsignedBigInteger('user_id');
             $table->boolean('is_active')->default(true);
             $table->enum('status', ['open', 'closed', 'solved'])->default('open');
