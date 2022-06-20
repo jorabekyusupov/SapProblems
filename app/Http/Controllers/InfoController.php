@@ -25,7 +25,7 @@ class InfoController extends Controller
         $data = Validator::make($request->all(), [
             'kod' => 'required|unique:problems',
             'problem' => 'required',
-            'solution' => 'required',
+            'solution' => 'nullable',
             'start_date' => 'required',
             'end_date' => 'required'
         ])->validated();
@@ -44,7 +44,7 @@ class InfoController extends Controller
         $data = Validator::make($request->all(), [
             'kod' => 'required|unique:problems,kod,' . $id,
             'problem' => 'required',
-            'solution' => 'required',
+            'solution' => 'nullable',
             'start_date' => 'required',
             'end_date' => 'required'
         ])->validated();
