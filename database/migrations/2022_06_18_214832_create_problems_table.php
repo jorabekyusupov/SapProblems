@@ -11,7 +11,7 @@ return new class extends Migration {
             $table->id();
             $table->string('kod');
             $table->text('problem');
-            $table->text('solution');
+            $table->text('solution')->nullable();
             $table->dateTime('start_date');
             $table->dateTime('end_date');
             $table->unsignedBigInteger('user_id');
